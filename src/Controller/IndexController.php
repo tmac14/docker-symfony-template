@@ -24,11 +24,11 @@ class IndexController
 
         $crawler = $client->waitFor('#nav-submenu-container');
 
-        $crawler->filter('#nav-submenu-container > li > a')->reduce(function (Crawler $node) {
+        $crawler->filter('#nav-submenu-container > li > a')->each(function (Crawler $node) {
             dump($node->html());
         });
 
-        $client->close();
+        $client->quit();
 
         dd('jee');
     }
